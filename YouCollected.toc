@@ -1,0 +1,8 @@
+## Interface: 110207
+## Title: You Collected
+## Author: d-ellis
+## Version: 1.0.0
+## X-Curse-Project-ID: 1418137
+
+YouCollected_UI.xml
+YouCollected_Core.lua
