@@ -1,0 +1,46 @@
+name: Automatic Tagger
+on: workflow_dispatch
+jobs:
+  get-version:
+    runs-on: ubuntu-latest
+    outputs:
+      version: ${{ steps.get_version.outputs.version }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Get version from YouCollected.toc
+        id: get_version
+        run: |
+          if [ ! -f YouCollected.toc ]; then
+            echo "YouCollected.toc not found" >&2
+            exit 1
+          fi
+          version=$(awk '/^##[[:space:]]*Version:/ { sub(/^##[[:space:]]*Version:[[:space:]]*/, ""); print; exit }' YouCollected.toc)
+          if [ -z "$version" ]; then
+            echo "Version not found in YouCollected.toc" >&2
+            exit 2
+          fi
+          echo "Found version: $version"
+          echo "version=$version" >> $GITHUB_OUTPUT
+  tag-and-release:
+    runs-on: ubuntu-latest
+    needs: get-version
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v6.0.1
+      - name: Create Tag
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git tag -a "v${{ steps.get_version.outputs.version }}" -m "v${{ steps.get_version.outputs.version }}"
+          git push origin tag "v${{ steps.get_version.outputs.version }}"
+      - name: Create Release
+        uses: comnoco/create-release-action@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: v${{ steps.get_version.outputs.version }}
+          release_name: v${{ steps.get_version.outputs.version }}
+          
