@@ -1,0 +1,187 @@
+<?xml version="1.0"?>
+<Ui xmlns="http://www.blizzard.com/wow/ui/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <Frame name="YouCollected_CollectionFrame" hidden="true" virtual="true" movable="true" enableMouse="true" frameStrata="DIALOG" topLevel="true">
+        <Size x="276" y="96"/>
+        <Anchors>
+            <Anchor point="CENTER" x="0" y="0"/>
+        </Anchors>
+        <Layers>
+            <Layer level="BACKGROUND">
+                <Texture parentKey="Background">
+					<Anchors>
+						<Anchor point="CENTER"/>
+					</Anchors>
+                </Texture>
+            </Layer>
+            <Layer level="BORDER">
+                <Texture parentKey="Icon">
+                    <Size x="52" y="52"/>
+                    <Anchors>
+                        <Anchor point="LEFT" x="23" y="-2"/>
+                    </Anchors>
+                </Texture>
+            </Layer>
+            <Layer level="ARTWORK">
+                <Texture parentKey="IconBorder">
+                    <Size x="60" y="60"/>
+                    <Anchors>
+						<Anchor point="CENTER" relativeKey="$parent.Icon" relativePoint="CENTER" x="0" y="0"/>
+					</Anchors>
+                </Texture>
+            </Layer>
+            <Layer level="OVERLAY">
+                <Texture parentKey="CosmeticBorder" atlas="CosmeticIconFrame">
+                    <Size x="60" y="60"/>
+                    <Anchors>
+                        <Anchor point="CENTER" relativeKey="$parent.Icon" relativePoint="CENTER" x="0" y="0"/>
+                    </Anchors>
+                </Texture>
+                <FontString parentKey="YouCollectedText" inherits="GameFontNormal" justifyH="LEFT" text="YOU_COLLECTED_LABEL">
+                    <Size x="167" y="16"/>
+                    <Anchors>
+                        <Anchor point="TOPLEFT" relativeKey="$parent.Icon" relativePoint="TOPRIGHT" x="7" y="5"/>
+                    </Anchors>
+                </FontString>
+                <FontString parentKey="ItemName" inherits="GameFontNormalMed3" justifyH="LEFT" justifyV="MIDDLE">
+                    <Size x="167" y="33"/>
+                    <Anchors>
+                        <Anchor point="TOPLEFT" relativeKey="$parent.Icon" relativePoint="TOPRIGHT" x="10" y="-16"/>
+                    </Anchors>
+                </FontString>
+            </Layer>
+        </Layers>
+    </Frame>
+    <Frame name="YouCollected_AchievementFrame" hidden="true" virtual="true" movable="true" enableMouse="true" frameStrata="DIALOG" topLevel="true">
+        <Size x="300" y="101"/>
+		<Anchors>
+			<Anchor point="BOTTOM" x="0" y="128"/>
+		</Anchors>
+        <Layers>
+            <Layer level="BACKGROUND">
+                <Texture parentKey="Background" atlas="UI-Achievement-Alert-Background" useAtlasSize="true">
+					<Anchors>
+						<Anchor point="CENTER"/>
+					</Anchors>
+                </Texture>
+            </Layer>
+            <Layer level="BORDER">
+                <Texture parentKey="Icon">
+                    <Size x="52" y="52"/>
+                    <Anchors>
+                        <Anchor point="TOPLEFT" x="9" y="-26"/>
+                    </Anchors>
+                </Texture>
+            </Layer>
+            <Layer level="ARTWORK">
+                <Texture parentKey="IconBorder" atlas="UI-Achievement-IconFrame" useAtlasSize="true">
+                    <Anchors>
+						<Anchor point="CENTER" relativeKey="$parent.Icon" relativePoint="CENTER" x="-1" y="1"/>
+					</Anchors>
+                </Texture>
+                <Texture parentKey="Shield" atlas="UI-Achievement-Shield-NoPoints">
+                    <Anchors>
+                        <Anchor point="TOPRIGHT" x="-7" y="-21"/>
+                    </Anchors>
+                </Texture>
+            </Layer>
+            <Layer level="OVERLAY">
+                <FontString parentKey="AchievementEarnedText" inherits="GameFontBlackTiny" justifyH="CENTER" text="ACHIEVEMENT_UNLOCKED">
+                    <Size x="200" y="12"/>
+                    <Anchors>
+                        <Anchor point="TOP" x="7" y="-23"/>
+                    </Anchors>
+                </FontString>
+                <FontString parentKey="AchievementName" inherits="GameFontHighlight" justifyH="CENTER">
+                    <Size x="155" y="36"/>
+                    <Anchors>
+						<Anchor point="TOP" relativeKey="$parent.AchievementEarnedText" relativePoint="BOTTOM" x="-1"/>
+                    </Anchors>
+                </FontString>
+                <FontString parentKey="AchievementPoints" inherits="GameFontNormal" justifyH="CENTER">
+                    <Size x="30" y="16"/>
+                    <Anchors>
+                        <Anchor point="CENTER" relativeKey="$parent.Shield" relativePoint="CENTER" x="0" y="0"/>
+                    </Anchors>
+                    <Color r="1" g="1" b="1" a="1"/>
+                </FontString>
+            </Layer>
+        </Layers>
+    </Frame>
+    <Frame name="YouCollected_GuildAchievementFrame" hidden="true" virtual="true" movable="true" enableMouse="true" frameStrata="DIALOG" topLevel="true">
+        <Size x="300" y="104"/>
+		<Anchors>
+			<Anchor point="BOTTOM" x="0" y="128"/>
+		</Anchors>
+        <Layers>
+            <Layer level="BACKGROUND">
+                <Texture parentKey="Background" atlas="UI-Achievement-Guild-background" useAtlasSize="true">
+					<Anchors>
+						<Anchor point="CENTER"/>
+					</Anchors>
+                </Texture>
+            </Layer>
+            <Layer level="BACKGROUND" textureSubLevel="1">
+                <Texture parentKey="GuildBanner" atlas="ui-achievement-guild-flag-short" useAtlasSize="true">
+					<Anchors>
+						<Anchor point="TOPRIGHT" x="-13" y="-32"/>
+					</Anchors>
+                </Texture>
+            </Layer>
+			<Layer level="BORDER">
+				<Texture parentKey="GuildBorder" atlas="ui-achievement-guild-flag-short-outline" useAtlasSize="true">
+					<Anchors>
+						<Anchor point="TOPRIGHT" x="-13" y="-34"/>
+					</Anchors>
+				</Texture>
+			</Layer>
+            <Layer level="BORDER">
+                <Texture parentKey="Icon">
+                    <Size x="52" y="52"/>
+                    <Anchors>
+                        <Anchor point="TOPLEFT" x="13" y="-38"/>
+                    </Anchors>
+                </Texture>
+            </Layer>
+            <Layer level="ARTWORK">
+                <Texture parentKey="IconBorder" atlas="UI-Achievement-Guild-IconFrame" useAtlasSize="true">
+                    <Anchors>
+						<Anchor point="CENTER" relativeKey="$parent.Icon" relativePoint="CENTER" x="1" y="2"/>
+					</Anchors>
+                </Texture>
+                <Texture parentKey="Shield" atlas="UI-Achievement-Shield-NoPoints">
+                    <Size x="64" y="64"/>
+                    <Anchors>
+                        <Anchor point="TOPRIGHT" x="-11" y="-31"/>
+                    </Anchors>
+                </Texture>
+            </Layer>
+            <Layer level="OVERLAY">
+				<FontString parentKey="GuildName" inherits="GameFontNormal">
+					<Anchors>
+						<Anchor point="TOPLEFT" x="50" y="-13"/>
+						<Anchor point="TOPRIGHT" x="-50" y="-13"/>
+					</Anchors>
+				</FontString>
+                <FontString parentKey="AchievementEarnedText" inherits="GameFontBlackTiny" justifyH="CENTER" text="GUILD_ACHIEVEMENT_UNLOCKED">
+                    <Size x="200" y="12"/>
+                    <Anchors>
+                        <Anchor point="TOP" x="0" y="-38"/>
+                    </Anchors>
+                </FontString>
+                <FontString parentKey="AchievementName" inherits="GameFontHighlight" justifyH="CENTER">
+                    <Size x="155" y="36"/>
+                    <Anchors>
+						<Anchor point="TOP" relativeKey="$parent.AchievementEarnedText" relativePoint="BOTTOM"/>
+                    </Anchors>
+                </FontString>
+                <FontString parentKey="AchievementPoints" inherits="GameFontNormal" justifyH="CENTER">
+                    <Size x="30" y="16"/>
+                    <Anchors>
+                        <Anchor point="CENTER" relativeKey="$parent.Shield" relativePoint="CENTER" x="0" y="0"/>
+                    </Anchors>
+                    <Color r="0" g="1" b="0" a="1"/>
+                </FontString>
+            </Layer>
+        </Layers>
+    </Frame>
+</Ui>
