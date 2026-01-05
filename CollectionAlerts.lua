@@ -151,5 +151,3 @@ end)
 function PrintTableContents(table)
     for key,value in pairs(table) do print(key,value) end
 end
--- NewMountAlertSystem:AddAlert(363);
--- showMountAlert(363)

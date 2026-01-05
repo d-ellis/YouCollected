@@ -77,6 +77,3 @@ end)
 function PrintTableContents(table)
     for key,value in pairs(table) do print(key,value) end
 end
-
-AchievementAlertSystem:AddAlert(5011, false)
-showAchievementAlert(5011)
